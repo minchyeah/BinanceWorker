@@ -1,1 +1,1 @@
-# Bitting
+# Binance Worker
