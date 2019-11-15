@@ -18,7 +18,7 @@ class GlobalData
      * 网关监听端口
      * @var number
      */
-    public static $port = 12207;
+    public static $port = 22222;
 
     /**
      * 数据是否持久化
@@ -30,5 +30,5 @@ class GlobalData
      * 数据持久化文件路径
      * @var string
      */
-    public static $datapath = '/tmp/GlobalData_cache.php';
+    public static $datapath = '/tmp/BinanceData_cache.php';
 }

@@ -42,13 +42,13 @@ class Gateway
      * 网关监听端口
      * @var number
      */
-    public static $port = 8292;
+    public static $port = 6999;
     
     /**
      * 内部通讯起始端口，假如$worker_count=4，起始端口为4000,则一般会使用4000 4001 4002 4003 4个端口作为内部通讯端口
      * @var number
      */
-    public static $inner_start_port = 2900;
+    public static $inner_start_port = 6000;
     
     /**
      * 服务注册地址ip地址，分布式部署时使用内网ip
@@ -60,5 +60,5 @@ class Gateway
      * 服务注册端口
      * @var number
      */
-    public static $register_port = 10238;
+    public static $register_port = 9666;
 }
