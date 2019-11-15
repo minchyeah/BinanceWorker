@@ -8,7 +8,7 @@ class Web
      * 网关监听的ip地址，分布式部署时使用内网ip
      * @var string
      */
-    public static $address = '127.0.0.0';
+    public static $address = '0.0.0.0';
     
     /**
      * 网关监听端口

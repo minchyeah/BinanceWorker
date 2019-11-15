@@ -35,5 +35,5 @@ class Auth
      * Auth expire no action in 600 seconds
      * @var string
      */
-    public static $expire = '600';
+    public static $expire = '3600';
 }
