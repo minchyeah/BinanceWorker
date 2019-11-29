@@ -305,6 +305,24 @@ class Router
             $numHandled = $this->handle($this->afterRoutes[$this->requestedMethod], true);
         }
 
+        // Ext Handle while no route match
+        if ($numHandled === 0 && $this->requestedMethod === 'GET') {
+            $uriarr = explode('/', trim(trim($this->getCurrentUri(), '/')));
+            $fn = !empty($uriarr[0]) ? $uriarr[0] : 'Index';
+            unset($uriarr[0]);
+            $fn .= '@';
+            if(isset($uriarr[1])){
+                $fn .= $uriarr[1];
+                unset($uriarr[1]);
+            }else{
+                $fn .= 'index';
+            }
+            if($this->invoke($fn, $uriarr)){
+                $numHandled += 1;
+            }
+            unset($fn, $uriarr);
+        }
+
         // If no route was handled, trigger the 404 (if any)
         if ($numHandled === 0) {
             if ($this->notFoundCallback) {

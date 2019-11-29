@@ -3,7 +3,7 @@
 namespace Web\Controller;
 
 use \Library\Db;
-use \Library\Huobi;
+use \Library\Binance;
 use \Web\Common\Log;
 use \Web\Common\Template;
 use \Workerman\Connection\AsyncTcpConnection;
@@ -131,12 +131,12 @@ class Base
     }
 
     /**
-     * 火币API类库
-     * @var Library\Huobi
+     * 币安API类库
+     * @var Library\Binance
      */
-    protected function huobi()
+    protected function binance()
     {
-        return Huobi::getInstance();
+        return Binance::instance(\Config\Binance::$api_key, \Config\Binance::$api_secret);
     }
 
     /**
