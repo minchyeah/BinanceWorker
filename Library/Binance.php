@@ -507,7 +507,7 @@ class Binance
                 throw new \Exception("signedRequest error: API Secret not set!");
             }
 
-            $base = $this->base;
+            $base = $this->apiBaseUrl;
             $ts = (microtime(true) * 1000) + $this->info['timeOffset'];
             $params['timestamp'] = number_format($ts, 0, '.', '');
             if (isset($params['wapi'])) {
@@ -529,11 +529,11 @@ class Binance
         }
         // params so buildquery string and append to url
         else if (count($params) > 0) {
-            curl_setopt($curl, CURLOPT_URL, $this->base . $url . '?' . $query);
+            curl_setopt($curl, CURLOPT_URL, $this->apiBaseUrl . $url . '?' . $query);
         }
         // no params so just the base url
         else {
-            curl_setopt($curl, CURLOPT_URL, $this->base . $url);
+            curl_setopt($curl, CURLOPT_URL, $this->apiBaseUrl . $url);
             curl_setopt($curl, CURLOPT_HTTPHEADER, array(
                 'X-MBX-APIKEY: ' . $this->api_key,
             ));
