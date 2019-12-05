@@ -22,11 +22,11 @@ class Check extends Base
         $now = time();
         $interval = intval(\Config\Timer::$modules['Trade\Check']);
 
-        // get account orders every 1hour
-        if( ($now % 3600) < $interval){
-            foreach (\Config\Huobi::$symbols as $symbol) {
-                $this->call('Business\Trade\Check', array('symbol'=>$symbol));
-            }
+        // check trade every 5min
+        if( ($now % 300) < $interval){
+            //foreach (\Config\Binance::$symbols as $symbol) {
+                $this->call('Business\Trade\Check', array('symbol'=>'BTCUSDT'));
+            //}
         }
 
         unset($now,$interval,$symbol);

@@ -27,16 +27,16 @@ class Timer
      * ) <br />
      */
     public static $modules = array(
-            'Account\Balance'=>120, // 获取账号余额
+            //'Account\Balance'=>120, // 获取账号余额
             //'Account\Currency'=>0, // 计算交易币当前价格
-            'Account\Orders'=>60, // 查询订单
+            //'Account\Orders'=>60, // 查询订单
             //'Account\OrderDetail'=>0, // 查询订单详情
-            'Common\Symbols'=>5, // 获取交易对
+            //'Common\Symbols'=>5, // 获取交易对
             //'Common\Currencys'=>0, // 获取所有支持的币种
-            'Market\CleanKline'=>10,
-            'Market\Kline'=>10, // K线数据
-            'Trade\Check'=>195, // 检测交易
-            'Trade\CheckMargin'=>30, // 检测交易
+            //'Market\CleanKline'=>10,
+            //'Market\Kline'=>10, // K线数据
+            'Trade\Check'=>30, // 检测交易
+            //'Trade\CheckMargin'=>30, // 检测交易
         );
     
     /**
