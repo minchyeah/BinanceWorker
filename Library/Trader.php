@@ -119,7 +119,8 @@ class Trader
 	public function macd($kline, $period = 12, $period1 = 26, $period2 = 9)
 	{
 		$close = [];
-		foreach($kline as $val){
+		foreach($kline as $key=>$val){
+			$kline[$key]['dateTime'] = date(bcdiv($val['openTime'], 1000, 0), 'Y-m-d H:i:s');
 			$close[] = $val['close'];
 		}
 		$res = trader_macd(array_reverse($close), $period, $period1, $period2);
