@@ -120,7 +120,7 @@ class Trader
 	{
 		$close = [];
 		foreach($kline as $key=>$val){
-			$kline[$key]['dateTime'] = date(bcdiv($val['openTime'], 1000, 0), 'Y-m-d H:i:s');
+			$kline[$key]['dateTime'] = date('Y-m-d H:i:s', bcdiv($val['openTime'], 1000, 0));
 			$close[] = $val['close'];
 		}
 		$res = trader_macd(array_reverse($close), $period, $period1, $period2);
