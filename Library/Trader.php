@@ -96,7 +96,7 @@ class Trader
 	{
 		$data = [];
 		foreach($kline as $val){
-			$data[] = $val['amount'];
+			$data[] = $val['volume'];
 		}
 		$res = trader_ma($data, $period);
 		if(is_array($res)){
@@ -120,7 +120,7 @@ class Trader
 	{
 		$close = [];
 		foreach($kline as $key=>$val){
-			$kline[$key]['dateTime'] = date('Y-m-d H:i:s', bcdiv($val['openTime'], 1000, 0));
+			$kline[$key]['ktime'] = date('Y-m-d H:i:s', bcdiv($val['openTime'], 1000, 0));
 			$close[] = $val['close'];
 		}
 		$res = trader_macd(array_reverse($close), $period, $period1, $period2);
