@@ -369,7 +369,7 @@ class Binance
         if(isset($exinfo['symbols']) && !empty($exinfo['symbols'])){
             foreach ($exinfo['symbols'] as $symbol) {
                 if($symbol['isMarginTradingAllowed'] && $symbol['quoteAsset'] == 'USDT'){
-                    $symbols = $symbol;
+                    $symbols[] = $symbol;
                 }
             }
         }
