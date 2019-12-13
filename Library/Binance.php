@@ -359,6 +359,24 @@ class Binance
     }
 
     /**
+     * [marginSymbols description]
+     * @return [type] [description]
+     */
+    public function marginSymbols()
+    {
+        $symbols = [];
+        $exinfo = $this->exchangeInfo();
+        if(isset($exinfo['symbols']) && !empty($exinfo['symbols'])){
+            foreach ($exinfo['symbols'] as $symbol) {
+                if($symbol['isMarginTradingAllowed'] && $symbol['quoteAsset'] == 'USDT'){
+
+                }
+            }
+        }
+        return $symbols;
+    }
+
+    /**
      * prices get all the current prices
      *
      * $ticker = $api->prices();
