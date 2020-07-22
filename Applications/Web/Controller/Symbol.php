@@ -12,6 +12,19 @@ class Symbol extends Base
 		$this->render('symbol.html');
 	}
 
+	public function sync00()
+	{
+		print_r(func_get_args());
+		echo 'Symbol sync00';
+	}
+
+	public function sync($asd= 1)
+	{
+		print_r(func_get_args());
+
+		echo 'Symbol sync '.$asd;
+	}
+
 	public function price($symbol, $return = false)
 	{
 		$price = 0.00;

@@ -28,8 +28,7 @@ class Check extends Base
     public function run($params)
     {
         $symbol = $params['symbol'];
-        $url = 'https://api.huobi.pro/market/history/kline?period=60min&size=300&symbol='.$symbol;
-        $res = json_decode(Http::get($url), true);
+        $klines = $this->binance()->klines();
         if(!isset($res['data']) || empty($res['data'])){
             return false;
         }

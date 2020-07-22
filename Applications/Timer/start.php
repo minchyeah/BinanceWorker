@@ -13,9 +13,6 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-// 自动加载类
-require_once dirname(__DIR__) . '/loader.php';
-
 // TimerWorker
 $worker = new \Workerman\Worker();
 $worker->count = Config\Timer::$worker_count;
@@ -32,7 +29,7 @@ $worker->onWorkerStart = function () use ($worker)
         if(is_numeric($interval) && $interval > 0){
             $globaldata->add($className, array('interval'=>$interval, 'last_time'=>0, 'pid'=>0));
             // 触发任务
-            Workerman\Lib\Timer::add(0.01, array($timer,'trigger'), array(), false);
+            Workerman\Timer::add(0.01, array($timer,'trigger'), array(), false);
         }elseif(is_array($interval)){
             $args = $interval;
             unset($interval);
@@ -67,7 +64,7 @@ $worker->onWorkerStart = function () use ($worker)
             }
             if($end_time == 0 || $end_time > $now){
                 $globaldata->add($className, $gdata);
-                Workerman\Lib\Timer::add($trigger_time, array($timer,'trigger'), array(), false);
+                Workerman\Timer::add($trigger_time, array($timer,'trigger'), array(), false);
             }
         }
     }

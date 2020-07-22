@@ -112,6 +112,15 @@ abstract class Base
     }
 
     /**
+     * Binance接口实例
+     * @return \Library\Binance
+     */
+    protected function binance()
+    {
+        return \Library\Binance::instance(\Config\Binance::$api_key.':'.\Config\Binance::$api_secret);
+    }
+
+    /**
      * 获取下次触发时间间隔
      * @param number $error_num 错误次数
      * @return number

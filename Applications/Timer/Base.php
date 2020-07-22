@@ -265,7 +265,7 @@ abstract class Base
             unset($key, $gdata);
         }
         if($continue && $interval > 0){
-            \Workerman\Lib\Timer::add($interval, array(self::getInstance(get_class($this)),'trigger'), array(), false);
+            \Workerman\Timer::add($interval, array(self::getInstance(get_class($this)),'trigger'), array(), false);
         }
         unset($second, $interval);
     }
